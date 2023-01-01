@@ -9,9 +9,57 @@
 
 
 {% block content %}
-
-    <div>
-        <h1>Welcome to Tweeter Clone</h1>
+    <style>
+        #tweets > h1 {
+            text-align: center;
+            margin-top: 3rem
+        }
+        #tweets > div {
+            width: 60%;
+            margin: 2rem auto;
+            padding: 1rem;
+            border: 2px solid rgb(0, 195, 255);
+            line-height: 1.5;
+            border-radius: 10px;
+            background: rgb(183, 241, 255);
+        }
+    </style>
+    <div id="tweets">
+        <h1 >Welcome to Tweeter Clone</h1>
     </div>
 
+    <script type="text/javascript">
+        const tweetsContainer = document.querySelector('#tweets')
+        function loadTweets(tweet){
+            const div = document.createElement('div')
+            div.innerHTML = `<div>
+                                <p id="tweet-${tweet.id}">Content: ${tweet.content}</p>
+                                <button style='cursor:pointer; color: white; background: rgb(0, 119, 255); 
+                                border: none; box-shadow: none; padding: 0.5rem 1rem; border-radius: 5px; font-size: 16px; margin-top: 0.5rem' >${tweet.likes} <span>Likes</span></button>
+                            </div>`
+            tweetsContainer.append(div)
+        }
+
+        const xhr = new XMLHttpRequest()
+        const method = 'GET'
+        const url = '{% url "tweets:total-tweets" %}'
+        const responseType = 'json'
+
+        xhr.responseType = responseType
+        xhr.open(method, url)
+        xhr.onload = function(){
+            const xhrResponse = xhr.response
+            const tweetList = xhrResponse.tweet_list
+            const tweets = [...tweetList]
+            tweets.forEach(loadTweets)
+            // const div = document.createElement('div')
+            // div.innerHTML = `
+            //                 <div>hello world 1</div>
+            //                 <div>hello world 1</div>
+            //                 <div>hello world 1</div>
+            //                 `
+            // tweetsContainer.append(div)
+        }
+        xhr.send()
+    </script>
 {% endblock content %}

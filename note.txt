@@ -1,0 +1,28 @@
+==========
+TIME TABLE
+==========
+REST API:
+51:35 - Dynamic View into Rest API Endpoint
+1:56:55 - Tweet form by hand
+
+Example:
+    from django.http import JsonResponse
+    from tweets.models import Tweet
+
+    FROM VIEWS.PY:
+    -Rest apt view
+        def detail_view(request, tweet_id):
+            data = {
+                'id': id
+            }
+            status = 200
+            try:
+                tweet = Tweet.objects.get(id=tweet_id)
+                data['content'] = tweet.content
+            except:
+                data['message'] = 'Not found'
+                status = 404
+            return JsonResponse(data, status=status)
+
+Load TWEETS USING JAVASCRIPT:
+1:08:04 - Dynamic Load Tweets via Javascript
