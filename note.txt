@@ -25,4 +25,5 @@ Example:
             return JsonResponse(data, status=status)
 
 Load TWEETS USING JAVASCRIPT:
-1:08:04 - Dynamic Load Tweets via Javascript
+1:08:04 - 2:07:47- Dynamic Load Tweets via Javascript
+2:08:30 - Prevent form submit via javascript
