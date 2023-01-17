@@ -26,4 +26,6 @@ Example:
 
 Load TWEETS USING JAVASCRIPT:
 1:08:04 - 2:07:47- Dynamic Load Tweets via Javascript
+2:04:59 - safe redirect url - is_safe_url()
 2:08:30 - Prevent form submit via javascript
+2:12:38 - sending form data via pure javascript
