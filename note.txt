@@ -29,3 +29,7 @@ Load TWEETS USING JAVASCRIPT:
 2:04:59 - safe redirect url - is_safe_url()
 2:08:30 - Prevent form submit via javascript
 2:12:38 - sending form data via pure javascript
+2:22:06 - handling ajax requests
+2:26:50 - serialize django model objects
+2:33:33 - append new tweet and reorder
+2:37:11 - handling form error
